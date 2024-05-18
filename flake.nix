@@ -10,7 +10,7 @@
       let
         pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-        _1password-utils = pkgs.callPackage ./_1password-utils.nix { };
+        _1password-utils = pkgs.callPackage ./default.nix { };
       in
       {
         formatter = treefmtEval.config.build.wrapper;
